@@ -1,6 +1,6 @@
 import numpy as np
 import torch
-from model import Model, Model3
+from model import Model
 import csv
 from dataset import CowsDataset
 from torch.utils.tensorboard import SummaryWriter
@@ -19,7 +19,7 @@ with open('cows.csv','r') as f:
         data[i] = np.array([float(el) for el in row], dtype=np.float32)
 
 
-model = Model3()
+model = Model()
 optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
 criterion = torch.nn.MSELoss()
 writer = SummaryWriter()
